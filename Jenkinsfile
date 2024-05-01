@@ -54,14 +54,13 @@ pipeline {
             steps {
                 script {
                     echo '------------- Artifact Publish Started ------------'
-                    def server = Artifactory.newServer url:"https://meportal12.jfrog.io/artifactory/api/maven/jfrog-key
-" ,  credentialsId:"jfrog-cred"
+                    def server = Artifactory.newServer url:"https://meportal12.jfrog.io/artifactory" ,  credentialsId:"jfrog-cred"
                     def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                     def uploadSpec = """{
                         "files": [
                             {
                                 "pattern": "staging/(*)",
-                                "target": "release-local-artifacts/{1}",
+                                "target": "jfrog-key/{1}",
                                 "flat": "false",
                                 "props" : "${properties}",
                                 "exclusions": [ "*.sha1", "*.md5"]
