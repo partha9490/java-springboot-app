@@ -58,11 +58,10 @@ pipeline {
         stage (" Docker Publish "){
             steps {
                 script {
-                        echo '---------- Docker Publish Started --------'  
-                        docker.withRegistry("https://meportal12.jfrog.io", 'jfrog-cred'){
-                        app.push()
-                        echo '------------ Docker Publish Ended ---------'  
-                    } 
+                    echo '---------- Docker Publish Started --------'  
+                    docker.withRegistry("https://meportal12.jfrog.io", 'jfrog-cred')
+                    app.push()
+                    echo '------------ Docker Publish Ended ---------'   
                 }
             }
         }        
