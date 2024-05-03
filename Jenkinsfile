@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script {
                     echo '-------------- Docker Build Started -------------'
-                    app = docker.build("https://meportal12.jfrog.io/artifactory/api/docker/partha-new1/myapp:1.0")
+                    app = docker.build("meportal12.jfrog.io/partha-new1/myapp:1.0")
                     echo '-------------- Docker Build Ended -------------'
                 }
             }
